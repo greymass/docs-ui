@@ -1,0 +1,143 @@
+type: object
+properties:
+  account_name:
+    $ref: "Name.yaml"
+  head_block_num:
+    type: integer
+    format: int32
+  head_block_time:
+    $ref: "DateTimeSeconds.yaml"
+  privileged:
+    type: boolean
+  last_code_update:
+    $ref: "DateTimeSeconds.yaml"
+  created:
+    $ref: "DateTimeSeconds.yaml"
+  core_liquid_balance:
+    type: string
+    nullable: true
+  ram_quota:
+    type: integer
+    format: int64
+  net_weight:
+    type: integer
+    format: int64
+  cpu_weight:
+    type: integer
+    format: int64
+  net_limit:
+    type: object
+    properties:
+      used:
+        type: integer
+        format: int64
+      available:
+        type: integer
+        format: int64
+      max:
+        type: integer
+        format: int64
+      last_usage_update_time:
+        type: integer
+        format: int64
+        nullable: true
+      current_used:
+        type: integer
+        format: int64
+        nullable: true
+  cpu_limit:
+    type: object
+    properties:
+      used:
+        type: integer
+        format: int64
+      available:
+        type: integer
+        format: int64
+      max:
+        type: integer
+        format: int64
+      last_usage_update_time:
+        type: integer
+        format: int64
+        nullable: true
+      current_used:
+        type: integer
+        format: int64
+        nullable: true
+  ram_usage:
+    type: integer
+    format: int64
+  permissions:
+    type: array
+    items:
+      type: object
+      properties:
+        perm_name:
+          $ref: "Name.yaml"
+        parent:
+          $ref: "Name.yaml"
+        required_auth:
+          $ref: "Authority.yaml"
+        linked_actions:
+          type: array
+          nullable: true
+          items:
+            type: object
+            properties:
+              account:
+                $ref: "Name.yaml"
+              action:
+                $ref: "Name.yaml"
+                nullable: true
+  total_resources:
+    type: object
+    nullable: true
+    description: "An object containing various resources owned by the account. The structure of this object is defined by the `eosio.system` contract."
+  self_delegated_bandwidth:
+    type: object
+    nullable: true
+    description: "An object containing information about the account's self-delegated bandwidth. The structure of this object is defined by the `eosio.system` contract."
+  refund_request:
+    type: object
+    nullable: true
+    description: "An object containing information about any pending refund requests for the account. The structure of this object is defined by the `eosio.system` contract."
+  voter_info:
+    type: object
+    nullable: true
+    description: "An object containing the account's voting information. The structure of this object is defined by the `eosio.system` contract."
+  rex_info:
+    type: object
+    nullable: true
+    description: "An object containing the account's REX (Resource Exchange) information. The structure of this object is defined by the `eosio.system` contract."
+  subjective_cpu_bill_limit:
+    type: object
+    nullable: true
+    properties:
+      used:
+        type: integer
+        format: int64
+      available:
+        type: integer
+        format: int64
+      max:
+        type: integer
+        format: int64
+      last_usage_update_time:
+        type: integer
+        format: int64
+        nullable: true
+      current_used:
+        type: integer
+        format: int64
+        nullable: true
+  eosio_any_linked_actions:
+    type: array
+    items:
+      type: object
+      properties:
+        account:
+          $ref: "Name.yaml"
+        action:
+          $ref: "Name.yaml"
+          nullable: true
