@@ -71,7 +71,8 @@ const generateSidebars = (docsPath) => {
                         dirName: `${root}`
                     }
                 ],
-                collapsed: false
+                collapsed: false,
+                order: root.split('_')[0] ? parseInt(root.split('_')[0]) : -1
             };
 
 
@@ -119,6 +120,20 @@ const generateSidebars = (docsPath) => {
     //     ],
     //     collapsed: false
     // })
+
+    // order sidebar items by number in the title
+    sidebar = sidebar.sort((a, b) => {
+        if(a.order && b.order){
+            return a.order - b.order;
+        }
+        return 0;
+    });
+
+    // remove order property from sidebar items
+    sidebar = sidebar.map(item => {
+        if(item.order) delete item.order;
+        return item;
+    });
 
     const sidebarjs = `// @ts-check
 

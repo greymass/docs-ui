@@ -1,4 +1,4 @@
-# EOS Docs
+# Vaulta Docs
 
 ## Installation
 
@@ -24,7 +24,7 @@ npm start
 
 ### Watch changes to local docs repository
 
-You can watch your local `docs` repository to work directly against the docs UI when you write EOS documentation:
+You can watch your local `docs` repository to work directly against the docs UI when you write Vaulta documentation:
 
 ```shell
 node scripts/pull-docs-locally.js <path-to-docs-repo>
